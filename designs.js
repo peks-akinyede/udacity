@@ -2,21 +2,41 @@
 // Select size input
 
 // When size is submitted by the user, call makeGrid()
-$('body').append("<h1 class = 'bob'>try</h1>");
-
-var height = $('#inputHeight').val();
-var weight = $('#inputWeight').val();
 var table = $('#pixelCanvas');
-var color = $('#colorPicker').val();
 var submitButton = $('input[type="submit"]');
 
-function makeGrid() {
+submitButton.on('click', function (e) {
+  e.preventDefault();
+  makeGrid();
+});
 
-// Your code goes here!
+function makeGrid() {
+  var height = $('#inputHeight').val();
+  var weight = $('#inputWeight').val();
+  $('tbody').remove();
+
+  table.append('<tbody></tbody>');
+  let tableBody = table.find('tbody');
+
+  for(let i =0; i<height;i++){
+    tableBody.append('<tr></tr>');
+  }
+
+  tableBody.find('tr').each(function(){
+    for(let j=0;j<weight;j++){
+      $(this).append('<td></td>');
+    }
+  });
+  // Your code goes here!
 
 }
 
-// submitButton.on('click', function (e) {
-//     e.preventDefault();
-//         brr();
-//     });
+table.on('click', "td", function(){
+  var color = $('#colorPicker').val();
+
+  if($(this).attr('bgcolor')===color){
+    $(this).attr("bgcolor", '#fff');
+  }else{
+    $(this).attr("bgcolor", color);
+  }
+});
