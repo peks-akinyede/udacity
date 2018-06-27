@@ -28,7 +28,6 @@ function makeGrid() {
     }
   });
   // Your code goes here!
-
 }
 
 table.on('click', "td", function(){
