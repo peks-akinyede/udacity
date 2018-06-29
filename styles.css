@@ -1,5 +1,16 @@
 body {
     text-align: center;
+    background-color: grey
+}
+
+.view {
+  background-color: lightblue;
+  margin-top: 16px;
+  /* Wrap content */
+   display: inline-block;
+   border-radius: 50px;
+   /* shadow  */
+   box-shadow: 0 0 100px black;
 }
 
 h1 {

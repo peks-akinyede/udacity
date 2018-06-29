@@ -6,6 +6,7 @@
 $(document).ready(function(){
   var table = $('#pixelCanvas');
   var submitButton = $('input[type="submit"]');
+  var div = $('.view');
 
   submitButton.on('click', function (e) {
     e.preventDefault();
@@ -34,12 +35,15 @@ $(document).ready(function(){
 
   table.on('click', "td", function(){
     var color = $('#colorPicker').val();
-
+    var backgroundColor = div.css('background-color');
+    
     if($(this).attr('bgcolor')===color){
-      $(this).attr("bgcolor", '#fff');
+      $(this).attr("bgcolor", backgroundColor);
     }else{
       $(this).attr("bgcolor", color);
     }
   });
+
+
 
 });
